@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idea-plugin>
+     <id>com.github.iappapp.panda.idea.codegen</id>
+     <name>Panda Code Generator</name>
+     <version>1.0.0</version>
+     <vendor email="support@panda-framework.com" url="https://github.com/iappapp/panda">
+          Panda Framework
+     </vendor>
+
+     <description><![CDATA[
+          <b>Panda Code Generator Plugin for IntelliJ IDEA</b><br/>
+          <br/>
+          一个强大的代码生成插件，支持：<br/>
+          <ul>
+               <li>从DDL SQL自动生成代码</li>
+               <li>支持DO（数据对象）、Info（模型）、Model（DTO）生成</li>
+               <li>支持Service、ServiceImpl、Mapper、Convert等代码</li>
+               <li>灵活的Lombok和MyBatis-Plus开关配置</li>
+               <li>一键快速代码生成</li>
+          </ul>
+     ]]></description>
+
+     <change-notes><![CDATA[
+          <b>Version 1.0.0</b><br/>
+          <ul>
+               <li>Initial release</li>
+               <li>支持DDL SQL解析</li>
+               <li>一键生成Panda框架完整代码</li>
+               <li>支持JDK 1.8+</li>
+          </ul>
+     ]]></change-notes>
+
+     <idea-version since-build="213"/>
+
+     <depends>com.intellij.modules.platform</depends>
+     <depends>com.intellij.modules.java</depends>
+
+     <extensions defaultExtensionNs="com.intellij">
+          <toolWindow id="Panda Code Generator"
+                         anchor="right"
+                         factoryClass="com.github.iappapp.panda.idea.toolwindow.PandaCodeGenToolWindowFactory"/>
+
+          <projectService serviceImplementation="com.github.iappapp.panda.idea.service.CodeGeneratorService"/>
+     </extensions>
+
+     <actions>
+          <action id="PandaCodeGen.Generate"
+                    class="com.github.iappapp.panda.idea.action.GenerateCodeAction"
+                    text="Generate Code with Panda"
+                    description="从DDL SQL生成Panda框架代码">
+               <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+          </action>
+
+          <action id="PandaCodeGen.ShowToolWindow"
+                    class="com.github.iappapp.panda.idea.action.ShowToolWindowAction"
+                    text="Panda Code Generator"
+                    description="打开Panda代码生成工具">
+               <add-to-group group-id="ToolsMenu" anchor="last"/>
+          </action>
+     </actions>
+</idea-plugin>
