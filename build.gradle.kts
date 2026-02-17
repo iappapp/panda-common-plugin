@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.github.iappapp.panda.common"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
   mavenLocal()
@@ -17,6 +17,10 @@ dependencies {
   implementation("org.freemarker:freemarker:2.3.31")
   implementation("org.slf4j:slf4j-api:1.7.36")
   implementation("com.alibaba:druid:1.2.16")
+
+  testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.2")
+  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.2")
+  testImplementation("org.mockito:mockito-core:5.12.0")
 }
 
 // Configure Gradle IntelliJ Plugin
@@ -36,6 +40,10 @@ tasks {
   }
   withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = "17"
+  }
+
+  withType<Test> {
+    useJUnitPlatform()
   }
 
   patchPluginXml {

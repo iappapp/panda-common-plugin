@@ -1,4 +1,4 @@
-package com.github.iappapp.panda.idea.toolwindow
+package com.github.iappapp.panda.plugin.toolwindow
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.ToolWindow
@@ -11,10 +11,10 @@ import com.intellij.ui.content.ContentFactory
  * @author system
  * @date 2026-02-12
  */
-class PandaCodeGenToolWindowFactory : ToolWindowFactory {
+class CodeGenToolWindowFactory : ToolWindowFactory {
 
     override fun createToolWindowContent(project: Project, toolWindow: ToolWindow) {
-        val panel = PandaCodeGenPanel(project)
+        val panel = CodeGeneratePanel(project)
         val contentFactory = ContentFactory.getInstance()
         val content = contentFactory.createContent(panel.content, "", false)
         toolWindow.contentManager.addContent(content)

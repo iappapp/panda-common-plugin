@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <idea-plugin>
      <id>com.github.iappapp.panda.idea.codegen</id>
-     <name>Panda Code Generator</name>
+     <name>Panda Common Generator</name>
      <version>1.0.0</version>
-     <vendor email="support@panda-framework.com" url="https://github.com/iappapp/panda">
+     <vendor email="iadore@live.cn" url="https://github.com/iappapp/panda-framework">
           Panda Framework
      </vendor>
 
@@ -36,24 +36,17 @@
      <depends>com.intellij.modules.java</depends>
 
      <extensions defaultExtensionNs="com.intellij">
-          <toolWindow id="Panda Code Generator"
+          <toolWindow id="Panda Common Generator"
                          anchor="right"
-                         factoryClass="com.github.iappapp.panda.idea.toolwindow.PandaCodeGenToolWindowFactory"/>
+                         factoryClass="com.github.iappapp.panda.plugin.toolwindow.CodeGenToolWindowFactory"/>
 
-          <projectService serviceImplementation="com.github.iappapp.panda.idea.service.CodeGeneratorService"/>
+          <projectService serviceImplementation="com.github.iappapp.panda.plugin.service.CodeGeneratorService"/>
      </extensions>
 
      <actions>
-          <action id="PandaCodeGen.Generate"
-                    class="com.github.iappapp.panda.idea.action.GenerateCodeAction"
-                    text="Generate Code with Panda"
-                    description="从DDL SQL生成Panda框架代码">
-               <add-to-group group-id="EditorPopupMenu" anchor="last"/>
-          </action>
-
           <action id="PandaCodeGen.ShowToolWindow"
-                    class="com.github.iappapp.panda.idea.action.ShowToolWindowAction"
-                    text="Panda Code Generator"
+                    class="com.github.iappapp.panda.plugin.action.ShowToolWindowAction"
+                    text="Panda Common Generator"
                     description="打开Panda代码生成工具">
                <add-to-group group-id="ToolsMenu" anchor="last"/>
           </action>

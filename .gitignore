@@ -1,0 +1,28 @@
+# Gradle
+.gradle/
+build/
+out/
+
+# IntelliJ IDEA / Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# IntelliJ plugin sandbox/runtime artifacts
+run/
+sandbox/
+
+# Logs
+*.log
+hs_err_pid*
+replay_pid*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local environment
+.env
+.env.*
+!.env.example

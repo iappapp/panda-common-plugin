@@ -1,4 +1,4 @@
-package com.github.iappapp.panda.idea.action
+package com.github.iappapp.panda.plugin.action
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
@@ -18,7 +18,7 @@ class ShowToolWindowAction : AnAction() {
         val project: Project = e.project ?: return
 
         val manager = ToolWindowManager.getInstance(project)
-        val toolWindow: ToolWindow? = manager.getToolWindow("Panda Code Generator")
+        val toolWindow: ToolWindow? = manager.getToolWindow("Panda Common Generator")
         toolWindow?.activate(null)
     }
 
