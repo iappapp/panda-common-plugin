@@ -3,7 +3,7 @@ package com.github.iappapp.panda.plugin.service
 import com.alibaba.druid.DbType
 import com.github.iappapp.panda.common.generate.CodeGeneratorEngine
 import com.github.iappapp.panda.common.generate.GenerateContext
-import com.github.iappapp.panda.common.generate.SqlParserUtils
+import com.github.iappapp.panda.common.generate.utils.SqlParserUtils
 import com.github.iappapp.panda.common.generate.definition.ProjectDefinition
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.diagnostic.Logger
@@ -57,6 +57,14 @@ class CodeGeneratorService(private val project: Project) {
         generateContext: GenerateContext,
         config: GenerateCodeConfig
     ): GenerateContext {
+            var projectDefinition = ProjectDefinition.builder()
+            .projectRoot(config.projectRoot.ifBlank { getProjectRoot() })
+            .dalModuleName(config.dalModuleName)
+            .coreModelModuleName(config.coreModelModuleName)
+            .facadeModuleName(config.facadeModuleName)
+            .coreServiceModuleName(config.coreServiceModuleName)
+            .build();
+
         return GenerateContext.builder()
             .author(config.author)
             .className(generateContext.className)
@@ -64,15 +72,7 @@ class CodeGeneratorService(private val project: Project) {
             .tableName(generateContext.tableName)
             .fields(generateContext.fields)
             .primaryKeyName(generateContext.primaryKeyName)
-            .project(
-                ProjectDefinition.builder()
-                    .projectRoot(config.projectRoot.ifBlank { getProjectRoot() })
-                    .dalModuleName(config.dalModuleName)
-                    .coreModelModuleName(config.coreModelModuleName)
-                    .facadeModuleName(config.facadeModuleName)
-                    .coreServiceModuleName(config.coreServiceModuleName)
-                    .build()
-            )
+            .project(projectDefinition)
             .useLombok(config.isUseLombok)
             .basePackage(config.basicPackage)
             .useMyBatisPlus(config.isUseMyBatisPlus)
