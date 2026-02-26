@@ -1,6 +1,7 @@
 package com.github.iappapp.panda.plugin.toolwindow
 
 import com.github.iappapp.panda.common.generate.CodeGeneratorEngine
+import com.github.iappapp.panda.plugin.constant.Constants
 import com.github.iappapp.panda.plugin.service.CodeGeneratorService
 import com.intellij.ide.util.PropertiesComponent
 import com.intellij.openapi.application.ApplicationManager
@@ -94,19 +95,19 @@ class CodeGeneratePanel(private val project: com.intellij.openapi.project.Projec
         panel.alignmentX = Component.LEFT_ALIGNMENT
 
         authorTextField = JTextField(30)
-        authorTextField.text = "iappapp"
+        authorTextField.text = Constants.DEFAULT_AUTHOR
 
         basicPackageTextField = JTextField(30)
-        basicPackageTextField.text = "com.aistarfish.cdssai."
+        basicPackageTextField.text = ""
 
         projectRootTextField = JTextField(30)
         projectRootTextField.text = project.basePath ?: ""
 
         myBatisPlusCheckBox = JCheckBox("MyBatis-Plus", true)
-        myBatisPlusCheckBox.toolTipText = "MyBatis-Plus开关"
+        myBatisPlusCheckBox.toolTipText = "MyBatis-Plus是否启用"
 
         lombokCheckBox = JCheckBox("Lombok", true)
-        lombokCheckBox.toolTipText = "Lombok开关"
+        lombokCheckBox.toolTipText = "Lombok是否启用"
 
         panel.add(createTextConfigRow("作者", authorTextField))
         panel.add(Box.createVerticalStrut(8))
@@ -114,7 +115,7 @@ class CodeGeneratePanel(private val project: com.intellij.openapi.project.Projec
         panel.add(Box.createVerticalStrut(8))
         panel.add(createTextConfigRow("项目总目录", projectRootTextField))
         panel.add(Box.createVerticalStrut(8))
-        panel.add(createTextConfigRow("MyBatis", myBatisPlusCheckBox))
+        panel.add(createTextConfigRow("MyBatis-Plus", myBatisPlusCheckBox))
         panel.add(Box.createVerticalStrut(6))
         panel.add(createTextConfigRow("Lombok", lombokCheckBox))
         panel.add(Box.createVerticalStrut(4))
@@ -157,9 +158,12 @@ class CodeGeneratePanel(private val project: com.intellij.openapi.project.Projec
 
         val scrollPane = com.intellij.ui.components.JBScrollPane(resultTextArea)
 
+        val resultPanel = JPanel(BorderLayout(5, 5))
+        resultPanel.add(resultLabel, BorderLayout.NORTH)
+        resultPanel.add(scrollPane, BorderLayout.CENTER)
+
         panel.add(buttonPanel, BorderLayout.NORTH)
-        panel.add(resultLabel, BorderLayout.CENTER)
-        panel.add(scrollPane, BorderLayout.SOUTH)
+        panel.add(resultPanel, BorderLayout.CENTER)
 
         return panel
     }
@@ -256,11 +260,11 @@ class CodeGeneratePanel(private val project: com.intellij.openapi.project.Projec
     }
 
     private fun loadSettings() {
-        val author = properties.getValue("panda.gen.author", "Panda Plugin")
-        val basicPackage = properties.getValue("panda.gen.basicPackage", "com.aistarfish.cdssai.")
-        val projectRoot = properties.getValue("panda.gen.projectRoot", project.basePath ?: "")
-        val useLombok = properties.getBoolean("panda.gen.lombok", true)
-        val useMyBatisPlus = properties.getBoolean("panda.gen.mybatis", true)
+        val author = properties.getValue(Constants.AUTHOR, Constants.DEFAULT_AUTHOR)
+        val basicPackage = properties.getValue(Constants.BASIC_PACKAGE, "")
+        val projectRoot = properties.getValue(Constants.PROJECT_ROOT, project.basePath ?: "")
+        val useLombok = properties.getBoolean(Constants.USE_LOMBOK, true)
+        val useMyBatisPlus = properties.getBoolean(Constants.USE_MYBATIS_PLUS, true)
 
         authorTextField.text = author
         basicPackageTextField.text = basicPackage
@@ -270,11 +274,11 @@ class CodeGeneratePanel(private val project: com.intellij.openapi.project.Projec
     }
 
     private fun saveSettings() {
-        properties.setValue("panda.gen.author", authorTextField.text)
-        properties.setValue("panda.gen.basicPackage", basicPackageTextField.text.trim())
-        properties.setValue("panda.gen.projectRoot", projectRootTextField.text.trim())
-        properties.setValue("panda.gen.lombok", lombokCheckBox.isSelected)
-        properties.setValue("panda.gen.mybatis", myBatisPlusCheckBox.isSelected)
+        properties.setValue(Constants.AUTHOR, authorTextField.text)
+        properties.setValue(Constants.BASIC_PACKAGE, basicPackageTextField.text.trim())
+        properties.setValue(Constants.PROJECT_ROOT, projectRootTextField.text.trim())
+        properties.setValue(Constants.USE_LOMBOK, lombokCheckBox.isSelected)
+        properties.setValue(Constants.USE_MYBATIS_PLUS, myBatisPlusCheckBox.isSelected)
     }
 
     val content: JPanel
