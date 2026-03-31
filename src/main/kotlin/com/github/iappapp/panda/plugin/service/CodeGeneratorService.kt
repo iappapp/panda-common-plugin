@@ -1,10 +1,10 @@
 package com.github.iappapp.panda.plugin.service
 
 import com.alibaba.druid.DbType
-import com.github.iappapp.panda.common.generate.CodeGeneratorEngine
-import com.github.iappapp.panda.common.generate.GenerateContext
-import com.github.iappapp.panda.common.generate.utils.SqlParserUtils
-import com.github.iappapp.panda.common.generate.definition.ProjectDefinition
+import com.github.iappapp.panda.generate.CodeGeneratorEngine
+import com.github.iappapp.panda.generate.GenerateContext
+import com.github.iappapp.panda.generate.utils.SqlParserUtils
+import com.github.iappapp.panda.generate.definition.ProjectDefinition
 import com.intellij.openapi.components.ServiceManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.project.Project

@@ -1,6 +1,6 @@
 package com.github.iappapp.panda.plugin.toolwindow
 
-import com.github.iappapp.panda.common.generate.CodeGeneratorEngine
+import com.github.iappapp.panda.generate.CodeGeneratorEngine
 import com.github.iappapp.panda.plugin.constant.Constants
 import com.github.iappapp.panda.plugin.service.CodeGeneratorService
 import com.intellij.ide.util.PropertiesComponent
