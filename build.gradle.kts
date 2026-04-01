@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.github.iappapp.panda.common"
-version = "1.0.0"
+version = "1.1.0"
 
 repositories {
   mavenLocal()
@@ -66,7 +66,7 @@ tasks {
 
   patchPluginXml {
     sinceBuild.set("241")
-    untilBuild.set("243.*")
+    untilBuild.set("253.*")
   }
 
   signPlugin {
@@ -77,5 +77,9 @@ tasks {
 
   publishPlugin {
     token.set(System.getenv("PUBLISH_TOKEN"))
+  }
+
+  processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
   }
 }

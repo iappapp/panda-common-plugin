@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <idea-plugin>
-     <id>com.github.iappapp.panda.idea.codegen</id>
-     <name>Panda Common Generator</name>
-     <version>1.0.0</version>
-     <vendor email="iadore@live.cn" url="https://github.com/iappapp/panda-framework">
-          Panda Framework
+     <id>com.github.iappapp.panda.common.generator</id>
+     <name>Panda Code Generator</name>
+     <version>1.1.0</version>
+     <vendor email="iadore@live.cn" url="https://github.com/iappapp/panda-common-plugin">
+          Panda Code Generator
      </vendor>
 
      <description><![CDATA[
-          <b>Panda Code Generator Plugin for IntelliJ IDEA</b><br/>
+          <b>Panda Code Generator for IntelliJ IDEA</b><br/>
           <br/>
           一个强大的代码生成插件，支持：<br/>
           <ul>
@@ -21,9 +21,8 @@
      ]]></description>
 
      <change-notes><![CDATA[
-          <b>Version 1.0.0</b><br/>
+          <b>Version 1.1.0</b><br/>
           <ul>
-               <li>Initial release</li>
                <li>支持DDL SQL解析</li>
                <li>一键生成Panda框架完整代码</li>
                <li>支持JDK 1.8+</li>
@@ -36,7 +35,7 @@
      <depends>com.intellij.modules.java</depends>
 
      <extensions defaultExtensionNs="com.intellij">
-          <toolWindow id="Panda Common Generator"
+          <toolWindow id="Panda Code Generator"
                          anchor="right"
                          factoryClass="com.github.iappapp.panda.plugin.toolwindow.CodeGenToolWindowFactory"/>
 
@@ -46,8 +45,8 @@
      <actions>
           <action id="PandaCodeGen.ShowToolWindow"
                     class="com.github.iappapp.panda.plugin.action.ShowToolWindowAction"
-                    text="Panda Common Generator"
-                    description="打开Panda代码生成工具">
+                    text="Panda Code Generator"
+                    description="打开代码生成工具">
                <add-to-group group-id="ToolsMenu" anchor="last"/>
           </action>
      </actions>
