@@ -47,6 +47,7 @@ class CodeGeneratePanel(private val project: com.intellij.openapi.project.Projec
     private lateinit var resultTextArea: JTextArea
     private lateinit var lombokCheckBox: JCheckBox
     private lateinit var myBatisPlusCheckBox: JCheckBox
+    private lateinit var swaggerCheckBox: JCheckBox
     private lateinit var authorTextField: JTextField
     private lateinit var basicPackageTextField: JTextField
     private lateinit var projectRootTextField: JTextField
@@ -109,6 +110,9 @@ class CodeGeneratePanel(private val project: com.intellij.openapi.project.Projec
         lombokCheckBox = JCheckBox("Lombok", true)
         lombokCheckBox.toolTipText = "Lombok是否启用"
 
+        swaggerCheckBox = JCheckBox("Swagger", true)
+        swaggerCheckBox.toolTipText = "Swagger文档是否接入"
+
         panel.add(createTextConfigRow("作者", authorTextField))
         panel.add(Box.createVerticalStrut(8))
         panel.add(createTextConfigRow("基础包", basicPackageTextField))
@@ -118,6 +122,8 @@ class CodeGeneratePanel(private val project: com.intellij.openapi.project.Projec
         panel.add(createTextConfigRow("MyBatis-Plus", myBatisPlusCheckBox))
         panel.add(Box.createVerticalStrut(6))
         panel.add(createTextConfigRow("Lombok", lombokCheckBox))
+        panel.add(Box.createVerticalStrut(4))
+        panel.add(createTextConfigRow("Swagger", swaggerCheckBox))
         panel.add(Box.createVerticalStrut(4))
         panel.add(Box.createVerticalGlue())
 
@@ -209,6 +215,7 @@ class CodeGeneratePanel(private val project: com.intellij.openapi.project.Projec
             projectRoot = projectRootTextField.text.trim()
             isUseLombok = lombokCheckBox.isSelected
             isUseMyBatisPlus = myBatisPlusCheckBox.isSelected
+            isUseSwagger = swaggerCheckBox.isSelected
         }
     }
 

@@ -24,6 +24,8 @@ public class GenerateContext {
     private boolean useLombok;
     // 是否支持 MyBatis-Plus
     private boolean useMyBatisPlus;
+    //
+    private boolean useSwagger;
 
     // --- 字段列表 ---
     private List<FieldDefinition> fields;

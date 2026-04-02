@@ -76,6 +76,7 @@ class CodeGeneratorService(private val project: Project) {
             .useLombok(config.isUseLombok)
             .basePackage(config.basicPackage)
             .useMyBatisPlus(config.isUseMyBatisPlus)
+            .useSwagger(config.isUseSwagger)
             .build()
     }
 
@@ -89,6 +90,7 @@ class CodeGeneratorService(private val project: Project) {
         var author: String = "iappapp"
         var isUseLombok: Boolean = true
         var isUseMyBatisPlus: Boolean = true
+        var isUseSwagger : Boolean = true
         var basicPackage: String = "com.aistarfish.cdssai."
         var projectRoot: String = ""
 

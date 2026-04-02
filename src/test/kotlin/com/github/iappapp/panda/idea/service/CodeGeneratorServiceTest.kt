@@ -58,6 +58,7 @@ class CodeGeneratorServiceTest {
             projectRoot = "/Users/mac/Desktop/cdssai"
             isUseLombok = true
             isUseMyBatisPlus = true
+            isUseSwagger = true
             dalModuleName = "app/common-dal"
             coreModelModuleName = "app/core-model"
             facadeModuleName = "app/common-facade"

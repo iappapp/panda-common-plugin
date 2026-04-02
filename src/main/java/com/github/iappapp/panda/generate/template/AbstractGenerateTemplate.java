@@ -104,6 +104,7 @@ public abstract class AbstractGenerateTemplate implements IGenerateTemplate {
         // 技术开关
         dataModel.put("useLombok", context.isUseLombok());
         dataModel.put("useMyBatisPlus", context.isUseMyBatisPlus());
+        dataModel.put("useSwagger", context.isUseSwagger());
 
         return dataModel;
     }

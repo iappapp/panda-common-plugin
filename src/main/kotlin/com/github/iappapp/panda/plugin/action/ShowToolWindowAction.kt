@@ -18,7 +18,7 @@ class ShowToolWindowAction : AnAction() {
         val project: Project = e.project ?: return
 
         val manager = ToolWindowManager.getInstance(project)
-        val toolWindow: ToolWindow? = manager.getToolWindow("Panda Common Generator")
+        val toolWindow: ToolWindow? = manager.getToolWindow("Panda Code Generator")
         toolWindow?.activate(null)
     }
 

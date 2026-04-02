@@ -14,6 +14,11 @@ import java.util.Date;
 import java.math.BigDecimal;
 </#if>
 
+<#if useSwagger>
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+</#if>
+
 <#if useLombok>
 import lombok.Data;
 </#if>
@@ -27,12 +32,18 @@ import java.io.Serializable;
 <#if useLombok>
 @Data
 </#if>
+<#if useSwagger>
+@ApiModel(description = "${tableDesc}模型")
+</#if>
 public class ${className}Model implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
 <#list fields as field>
     /** ${field.comment} */
+    <#if useSwagger>
+    @ApiModelProperty(value = "${field.comment}")
+    </#if>
     private ${field.type} ${field.name};
 
 </#list>
