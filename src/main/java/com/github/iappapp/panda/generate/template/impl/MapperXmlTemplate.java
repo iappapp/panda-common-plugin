@@ -78,7 +78,7 @@ public class MapperXmlTemplate extends AbstractGenerateTemplate {
     @Override
     public boolean shouldGenerate(GenerateContext context) {
         // 仅在不使用MyBatis-Plus时生成XML
-        return !context.isUseMyBatisPlus();
+        return true;
     }
 
     @Override

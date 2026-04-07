@@ -31,7 +31,10 @@ public class ServiceTemplate extends AbstractGenerateTemplate {
 
     @Override
     public String getTemplateName() {
-        return "service";
+        if (context.isUseMyBatisPlus()) {
+            return "mybatis-plus/service";
+        }
+        return "mybatis/service";
     }
 
     @Override

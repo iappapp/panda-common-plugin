@@ -18,7 +18,7 @@ public interface ${className}Mapper {
 
     /**
     * 新增
-    * @param ${className?uncap_first}
+    * @param ${className?uncap_first}DO
     **/
     int insert(${className}DO ${className?uncap_first}DO);
 
@@ -26,11 +26,11 @@ public interface ${className}Mapper {
     * 删除
     * @param id
     **/
-    int delete(int id);
+    int delete(long id);
 
     /**
     * 更新
-    * @param ${className?uncap_first}
+    * @param ${className?uncap_first}DO
     **/
     int update(${className}DO ${className?uncap_first}DO);
 }
