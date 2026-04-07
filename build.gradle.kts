@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.github.iappapp.panda.common"
-version = "1.2.0"
+version = "1.3.0"
 
 repositories {
   mavenLocal()
