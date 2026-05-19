@@ -216,6 +216,25 @@ class CodeGeneratePanel(private val project: com.intellij.openapi.project.Projec
             isUseLombok = lombokCheckBox.isSelected
             isUseMyBatisPlus = myBatisPlusCheckBox.isSelected
             isUseSwagger = swaggerCheckBox.isSelected
+
+            val dirName = projectRoot
+                .trimEnd('/')
+                .substringAfterLast('/')
+
+            val prefix = dirName
+                .takeIf { it.startsWith("coc-") }
+
+            if (prefix != null) {
+                dalModuleName = "app/${prefix}-common-dal"
+                coreModelModuleName = "app/${prefix}-core-model"
+                facadeModuleName = "app/${prefix}-common-facade"
+                coreServiceModuleName = "app/${prefix}-core-service"
+            } else {
+                dalModuleName = "app/common-dal"
+                coreModelModuleName = "app/core-model"
+                facadeModuleName = "app/common-facade"
+                coreServiceModuleName = "app/core-service"
+            }
         }
     }
 
