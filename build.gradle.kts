@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.github.iappapp.panda.common"
-version = "1.3.0"
+version = "1.4.0"
 
 repositories {
   mavenLocal()
@@ -66,7 +66,7 @@ tasks {
 
   patchPluginXml {
     sinceBuild.set("241")
-    untilBuild.set("253.*")
+    untilBuild.set(provider { null })
   }
 
   signPlugin {
